@@ -19,7 +19,6 @@ global.$done = function(result) {
   console.dir(JSON.parse(result.body), { depth: null });
 };
 
-// Dán code script locket vào đây
 const mapping = {
   '%E8%BD%A6%E7%A5%A8%E7%A5%A8': ['vip+watch_vip'],
   'Locket': ['Gold']
@@ -30,7 +29,7 @@ var ua = $request.headers["User-Agent"] || $request.headers["user-agent"],
 
 obj.Attention = "Chúc mừng bạn! Vui lòng không bán hoặc chia sẻ cho người khác!";
 
-var duyvinh09 = {
+var thaidev09 = {
       auto_resume_date: null,
       display_name: "locket_1600_1y",
       is_sandbox: true,
@@ -59,7 +58,7 @@ const match = Object.keys(mapping).find(e => ua.includes(e));
 
 if (match) {
   let [e, s] = mapping[match];
-  s ? (locketGold.product_identifier = s, obj.subscriber.subscriptions[s] = duyvinh09) : obj.subscriber.subscriptions["locket_1600_1y"] = duyvinh09, obj.subscriber.entitlements[e] = locketGold
-} else obj.subscriber.subscriptions["locket_1600_1y"] = duyvinh09, obj.subscriber.entitlements.pro = locketGold;
+  s ? (locketGold.product_identifier = s, obj.subscriber.subscriptions[s] = thaidev09) : obj.subscriber.subscriptions["locket_1600_1y"] = thaidev09, obj.subscriber.entitlements[e] = locketGold
+} else obj.subscriber.subscriptions["locket_1600_1y"] = thaidev09, obj.subscriber.entitlements.pro = locketGold;
 
 $done({ body: JSON.stringify(obj) });
