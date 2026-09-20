@@ -1,24 +1,3 @@
-// test.js
-global.$request = {
-  headers: {
-    "User-Agent": "Locket/1.0"
-  }
-};
-
-global.$response = {
-  body: JSON.stringify({
-    subscriber: {
-      subscriptions: {},
-      entitlements: {}
-    }
-  })
-};
-
-global.$done = function(result) {
-  console.log("=== KẾT QUẢ ===");
-  console.dir(JSON.parse(result.body), { depth: null });
-};
-
 const mapping = {
   '%E8%BD%A6%E7%A5%A8%E7%A5%A8': ['vip+watch_vip'],
   'Locket': ['Gold']
