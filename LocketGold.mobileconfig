@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadDisplayName</key>
+    <string>Locket Gold 💛 - Thai Dev 09</string>
+
+    <key>PayloadDescription</key>
+    <string>Hồ sơ cấu hình VIP chặn thu hồi Locket Gold vĩnh viễn.&#10;Thai Dev 09 - Zalo: 0978249967</string>
+
+    <key>PayloadIdentifier</key>
+    <string>com.thaidev09.locketgold.profile</string>
+
+    <key>PayloadScope</key>
+    <string>System</string>
+
+    <key>PayloadType</key>
+    <string>Configuration</string>
+
+    <key>PayloadUUID</key>
+    <string>C3F4A182-8D91-4B22-A1B2-3C4D5E6F7A8B</string>
+
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+
+    <key>PayloadOrganization</key>
+    <string>Thai Dev 09</string>
+
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>DNSSettings</key>
+            <dict>
+                <key>DNSProtocol</key>
+                <string>HTTPS</string>
+
+                <key>ServerURL</key>
+                <string>https://my.ublockdns.com/z451ak95</string>
+            </dict>
+
+            <key>OnDemandRules</key>
+            <array>
+                <dict>
+                    <key>Action</key>
+                    <string>Connect</string>
+                </dict>
+            </array>
+
+            <key>PayloadType</key>
+            <string>com.apple.dnsSettings.managed</string>
+
+            <key>PayloadIdentifier</key>
+            <string>com.thaidev09.locketgold.dns</string>
+
+            <key>PayloadUUID</key>
+            <string>D4E5B293-9E02-4C33-B2C3-4D5E6F7A8B9C</string>
+
+            <key>PayloadDisplayName</key>
+            <string>Locket Gold DNS - Thai Dev 09</string>
+
+            <key>PayloadOrganization</key>
+            <string>Thai Dev 09</string>
+
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+        </dict>
+    </array>
+</dict>
+</plist>
