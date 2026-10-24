@@ -1,6 +1,15 @@
-const headers = $request.headers;
-delete headers["X-RevenueCat-ETag"];
-delete headers["x-revenuecat-etag"];
-delete headers["If-None-Match"];
-delete headers["if-none-match"];
-$done({ headers });
+/***********************************************
+> deleteHeader - Thai Dev 09 (Zalo: 0978249967)
+> Based on: NightmarketServer V1.0.2
+***********************************************/
+
+const version = 'V1.0.2';
+
+function setHeaderValue(e, a, d) {
+    var r = a.toLowerCase();
+    r in e ? e[r] = d : e[a] = d;
+}
+
+var modifiedHeaders = $request.headers;
+setHeaderValue(modifiedHeaders, "X-RevenueCat-ETag", "");
+$done({ headers: modifiedHeaders });
