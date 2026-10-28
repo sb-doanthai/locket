@@ -274,6 +274,37 @@ if (ua.includes("Locket")) {
     // ============================================================
     // 6. WIDGET, THÔNG BÁO & GIAO DIỆN (JOURNAL / PROFILE)
     // ============================================================
+
+    // DANH SÁCH 21 KHUNG WIDGET (Theo thứ tự từ trên xuống, trái qua phải)
+    var KHUNG_WIDGET = {
+        1:  "https://i.ibb.co/RTm5P1n9/kitty-1.png",          // 1. Khung Kitty mặc định
+        2:  "https://i.ibb.co/C5D1JhSq/anhtu4n-widget-d1a00814a117.png", // 2. Gấu nhỏ
+        3:  "https://i.ibb.co/4RFCb3Lg/anhtu4n-widget-a0bb037fb112.png", // 3. Thanh gươm diệt quỷ
+        4:  "https://i.ibb.co/N6R96bTC/anhtu4n-widget-a39495a6f0b1.png", // 4. Shin
+        5:  "https://i.ibb.co/KpgjrPCX/anhtu4n-widget-a6de36ce5356.png", // 5. Pokemon
+        6:  "https://i.ibb.co/ynbJgCRY/anhtu4n-widget-392269522b49.png", // 6. Totoro
+        7:  "https://i.ibb.co/rGhYB5tf/anhtu4n-widget-604598c7d5e7.png", // 7. Spy x Family
+        8:  "https://i.ibb.co/dJgQp70s/anhtu4n-widget-0f4d0e6ea306.png", // 8. Naruto
+        9:  "https://i.ibb.co/Jj2WjS5j/anhtu4n-widget-dc68855e74bb.png", // 9. Dragonball
+        10: "https://i.ibb.co/F4NwZ7KS/anhtu4n-widget-046975acf5f8.png", // 10. Doraemon
+        11: "https://i.ibb.co/jZqmFXZw/anhtu4n-widget-d7743e3b91bb.png", // 11. Onepiece
+        12: "https://i.ibb.co/Fqnvnhjh/anhtu4n-widget-bf1eed22828a.png", // 12. Thủy thủ mặt trăng
+        13: "https://i.ibb.co/Css0671L/anhtu4n-widget-e1bfc0ba9310.png", // 13. Conan
+        14: "https://i.ibb.co/BV8hB3tP/anhtu4n-widget-a95fe762d13c.png", // 14. Chú thuật hồi chiến
+        15: "https://i.ibb.co/V0xhrzYF/anhtu4n-widget-55a51ea82785.png", // 15. My Hero Academia
+        16: "https://i.ibb.co/7tBjKgMp/anhtu4n-widget-ba756e4a1001.png", // 16. Attack on Titan
+        17: "https://i.ibb.co/zTRCg9hq/anhtu4n-widget-3b0ae9bad1d6.png", // 17. Hunter x Hunter
+        18: "https://i.ibb.co/vvV4rVkW/anhtu4n-widget-b135dd0654cd.png", // 18. One Punch Man
+        19: "https://i.ibb.co/Cpj7DVg2/anhtu4n-widget-cb007bbd32c2.png", // 19. Cyberpunk
+        20: "https://i.ibb.co/VWgr6fT9/anhtu4n-widget-a71bafdc3580.png", // 20. Messi
+        21: "https://i.ibb.co/VYbTmt9W/anhtu4n-widget-6e5396596442.png"  // 21. Thủy tinh
+    };
+
+    // 👉 ĐỔI SỐ BÊN DƯỚI ĐỂ CHỌN KHUNG BẠN MUỐN DÙNG (Từ 1 đến 21)
+    var CHON_KHUNG = 4; 
+
+    var selected_widget_url = KHUNG_WIDGET[CHON_KHUNG] || KHUNG_WIDGET[1];
+
     Object.assign(obj.entries, {
         widget_frame_event_max_images: "5",
         android_widget_frame_event_enabled: "true",
@@ -283,8 +314,8 @@ if (ua.includes("Locket")) {
         widget_last_sent_indicator: "false",
         widget_sync_token_reload_mode: "clearTokenNever",
         widget_frame_event: JSON.stringify({
-            uid: "midautumn_2026",            
-            url: "https://i.postimg.cc/fbY7MGdR/hlw.png", // BẠN CÓ THỂ ĐỔI LINK ẢNH KHUNG WIDGET TẠI ĐÂY
+            uid: "frame_event_v" + CHON_KHUNG,            
+            url: selected_widget_url,
             use_local_time_zone: true,
             placement: "below",
             start_at: "2020-01-01T00:00:00",
