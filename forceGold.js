@@ -275,7 +275,7 @@ if (ua.includes("Locket")) {
     // 6. WIDGET, THÔNG BÁO & GIAO DIỆN (JOURNAL / PROFILE)
     // ============================================================
 
-    // DANH SÁCH 21 KHUNG WIDGET (Theo thứ tự từ trên xuống, trái qua phải)
+    // DANH SÁCH 21 KHUNG WIDGET
     var KHUNG_WIDGET = {
         1:  "https://i.ibb.co/RTm5P1n9/kitty-1.png",          // 1. Khung Kitty mặc định
         2:  "https://i.ibb.co/C5D1JhSq/anhtu4n-widget-d1a00814a117.png", // 2. Gấu nhỏ
@@ -300,10 +300,19 @@ if (ua.includes("Locket")) {
         21: "https://i.ibb.co/VYbTmt9W/anhtu4n-widget-6e5396596442.png"  // 21. Thủy tinh
     };
 
-    // 👉 ĐỔI SỐ BÊN DƯỚI ĐỂ CHỌN KHUNG BẠN MUỐN DÙNG (Từ 1 đến 21)
+    // 👉 ĐỔI SỐ BÊN DƯỚI ĐỂ CHỌN KHUNG (1 đến 21)
     var CHON_KHUNG = 4; 
 
     var selected_widget_url = KHUNG_WIDGET[CHON_KHUNG] || KHUNG_WIDGET[1];
+    var frame_payload = {
+        uid: "frame_event_v" + CHON_KHUNG,            
+        url: selected_widget_url,
+        frame_url: selected_widget_url,
+        use_local_time_zone: true,
+        placement: "below",
+        start_at: "2020-01-01T00:00:00Z",
+        end_at: "2099-12-31T23:59:59Z"
+    };
 
     Object.assign(obj.entries, {
         widget_frame_event_max_images: "5",
@@ -313,14 +322,11 @@ if (ua.includes("Locket")) {
         widget_stale_state_enabled: "false",
         widget_last_sent_indicator: "false",
         widget_sync_token_reload_mode: "clearTokenNever",
-        widget_frame_event: JSON.stringify({
-            uid: "frame_event_v" + CHON_KHUNG,            
-            url: selected_widget_url,
-            use_local_time_zone: true,
-            placement: "below",
-            start_at: "2020-01-01T00:00:00",
-            end_at: "2099-12-31T23:59:59"
-        }),
+        
+        // Cung cấp cả 2 cấu trúc key tương thích mọi bản Locket
+        widget_frame_event: JSON.stringify(frame_payload),
+        widget_frame_events: JSON.stringify([frame_payload]),
+
         live_activity_onboarding: "true",
         live_activity_onboarding_variant: "friending",
         register_live_activity_push_to_start_token: "true",
