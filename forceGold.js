@@ -90,14 +90,14 @@ if (ua.includes("Locket")) {
     });
 
     // ============================================================
-    // 3. CAMERA, VIDEO, FILTERS & UPLOAD QUALITY
+    // 3. CAMERA, VIDEO, FILTERS & UPLOAD QUALITY (ĐÃ FIX FULL 60S)
     // ============================================================
     Object.assign(obj.entries, {
         camera: JSON.stringify({
             gold_max_duration: 60.0,
             goldMaxDuration: 60.0,
             max_duration: 60.0,
-            maxDuration: 30.0,
+            maxDuration: 60.0, // Đã sửa từ 30.0 lên 60.0
             ultra_wide: true,
             ultraWide: true,
             volume_button: true,
@@ -110,15 +110,15 @@ if (ua.includes("Locket")) {
             qualityMbps: 0.9
         }),
         camera_roll: JSON.stringify({
-            gold_max_duration: 30.0,
-            goldMaxDuration: 30.0,
-            video_max_duration: 30.0,
-            videoMaxDuration: 30.0,
-            max_duration: 30.0,
-            maxDuration: 30.0,
-            trim_max_duration: 30.0,
-            trimMaxDuration: 30.0,
-            camera_roll_max_duration: 30.0,
+            gold_max_duration: 60.0, // Đã sửa
+            goldMaxDuration: 60.0, // Đã sửa
+            video_max_duration: 60.0, // Đã sửa
+            videoMaxDuration: 60.0, // Đã sửa
+            max_duration: 60.0, // Đã sửa
+            maxDuration: 60.0, // Đã sửa
+            trim_max_duration: 60.0, // Đã sửa
+            trimMaxDuration: 60.0, // Đã sửa
+            camera_roll_max_duration: 60.0, // Đã sửa
             quality_mbps: 0.9,
             qualityMbps: 0.9,
             flash_button: true
@@ -157,15 +157,15 @@ if (ua.includes("Locket")) {
         camera_roll_video_upload_enabled: "true",
         internal_camera_roll_video_upload_enabled: "true",
         longer_camera_roll_videos_enabled: "true",
-        camera_roll_video_max_duration: "30.0",
-        camera_roll_max_duration: "30.0",
-        camera_roll_duration: "30.0",
-        max_video_duration: "30.0",
-        video_max_duration: "30.0",
-        video_trim_max_duration: "30.0",
-        trim_max_duration: "30.0",
-        gold_max_duration: "30.0",
-        goldMaxDuration: "30.0",
+        camera_roll_video_max_duration: "60.0", // Đã sửa
+        camera_roll_max_duration: "60.0", // Đã sửa
+        camera_roll_duration: "60.0", // Đã sửa
+        max_video_duration: "60.0", // Đã sửa
+        video_max_duration: "60.0", // Đã sửa
+        video_trim_max_duration: "60.0", // Đã sửa
+        trim_max_duration: "60.0", // Đã sửa
+        gold_max_duration: "60.0", // Đã sửa
+        goldMaxDuration: "60.0", // Đã sửa
         video_quality_mbps: "0.9",
         video_sound_enabled: "true",
         microphone_enabled: "true",
@@ -284,7 +284,7 @@ if (ua.includes("Locket")) {
         widget_sync_token_reload_mode: "clearTokenNever",
         widget_frame_event: JSON.stringify({
             uid: "midautumn_2026",            
-            url: "https://i.postimg.cc/fbY7MGdR/hlw.png",
+            url: "https://i.postimg.cc/fbY7MGdR/hlw.png", // BẠN CÓ THỂ ĐỔI LINK ẢNH KHUNG WIDGET TẠI ĐÂY
             use_local_time_zone: true,
             placement: "below",
             start_at: "2020-01-01T00:00:00",
@@ -361,7 +361,7 @@ if (ua.includes("Locket")) {
     });
 
     // ============================================================
-    // 8. OVERLAY & CUSTOM CAPTIONS
+    // 8. OVERLAY & CUSTOM CAPTIONS (ĐÃ THÊM CAPTION TÙY CHỈNH)
     // ============================================================
     Object.assign(obj.entries, {
         overlay_navigator_enabled: "true",
@@ -376,6 +376,40 @@ if (ua.includes("Locket")) {
             "good_morning", "goodnight", "ootd", "miss_you", "custom", "phunu_2010", "halloween_2026"
         ]),
         overlay_items: JSON.stringify([
+            // =====================================
+            // SECTION CAPTION CỦA RIÊNG BẠN
+            // =====================================
+            {
+                section: "👑 Thai Dev 09 Custom",
+                items: [
+                    // 1. Caption dùng ẢNH NỀN (Background URL)
+                    { 
+                        overlay_id: "caption:thaidev_img", 
+                        source: "remote", 
+                        caption: { 
+                            background: { url: "https://i.postimg.cc/fbY7MGdR/hlw.png" }, // Đổi link ảnh của bạn ở đây
+                            icon: { data: "🖼️", type: "emoji" }, 
+                            max_lines: 1, 
+                            text: "Ảnh nền của tôi", 
+                            text_color: "#FFFFFF", 
+                            type: "static_content" 
+                        } 
+                    },
+                    // 2. Caption màu Zalo
+                    { 
+                        overlay_id: "caption:thaidev_zalo", 
+                        source: "remote", 
+                        caption: { 
+                            background: { colors: ["#0068FF", "#00A2FF"] }, // Màu xanh Zalo
+                            icon: { data: "📞", type: "emoji" }, 
+                            max_lines: 1, 
+                            text: "Zalo: 0978249967", 
+                            text_color: "#FFFFFF", 
+                            type: "static_content" 
+                        } 
+                    }
+                ]
+            },
             {
                 section: "🎨 General",
                 items: [
