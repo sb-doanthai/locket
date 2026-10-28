@@ -1,18 +1,30 @@
-#!name=Locket Gold - Thai Dev 09
-#!desc=Module Locket Gold by Thai Dev 09 - Zalo: 0978249967
+#!name=Locket Gold 60s (Thai Dev 09)
+#!desc=Module Locket Gold tự host - Full tính năng 60s, Caption, Widget
+#!author=Thai Dev 09 - Zalo: 0978249967
 
 [General]
-user-agent = Locket/1.0.0 (iPhone; iOS 26.3; Scale/3.00)
+bypass-system = true
+skip-proxy = *.local, *.crashlytics.com
+tun-excluded-routes = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12
+
+[Header Rewrite]
+# Xóa header cache của RevenueCat để script luôn chạy
+^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$) header-del x-revenuecat-etag
+^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$) header-del X-RevenueCat-ETag
 
 [Script]
-# 1. Sửa lỗi Fake Gold RevenueCat
-revenuecat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/sb-doanthai/locket/refs/heads/main/locket.js, requires-body=true, max-size=-1, timeout=60
+# 1. Fake Gold RevenueCat
+revenuecat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/sb-doanthai/locket/main/locket.js, requires-body=true, max-size=-1, timeout=60
 
 # 2. Xóa Header tránh bị checkpoint
-deleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/sb-doanthai/locket/refs/heads/main/deleteHeader.js, timeout=60
+deleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/sb-doanthai/locket/main/deleteHeader.js, timeout=60
 
-# 3. Ép Gold từ Firebase
-locket_rc = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/sb-doanthai/locket/refs/heads/main/forceGold.js, requires-body=true, max-size=-1, timeout=60
+# 3. Ép cấu hình Firebase (60s, Caption, Widget)
+locket_rc = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/sb-doanthai/locket/main/forceGold.js, requires-body=true, max-size=-1, timeout=60
+
+# 4. (Tùy chọn) Thêm Badge và Caption động - Nếu bạn đã tạo file này trên GitHub thì xóa dấu # ở dòng dưới
+# locket_badge_caption = type=http-response, pattern=^https:\/\/(api\.locketcamera\.com|us-central1-locket-4252a\.cloudfunctions\.net)\/(?:[^?#]*\/)?(fetchUserV2|getUserByUsername|postMomentV2)(?:[/?#]|$), script-path=https://raw.githubusercontent.com/sb-doanthai/locket/main/locket_badge_caption.js, requires-body=true, max-size=-1, timeout=60
 
 [MITM]
-hostname = %APPEND%, api.revenuecat.com, firebaseremoteconfig.googleapis.com
+# Chỉ khai báo 4 hostname cần thiết của Locket
+hostname = %APPEND%, api.revenuecat.com, firebaseremoteconfig.googleapis.com, api.locketcamera.com, us-central1-locket-4252a.cloudfunctions.net
