@@ -1,14 +1,11 @@
-// ========= ID ========= //
 const mapping = {
   'Locket': ['Gold']
 };
-// =========   Phần cố định  ========= // 
 // =========  @thaidev09 (Zalo: 0978249967) ========= // 
 
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"],
   obj = JSON.parse($response.body);
 
-// Đã thêm Zalo vào thông báo
 obj.Attention = "Chúc mừng bạn! Vui lòng không bán hoặc chia sẻ cho người khác! Liên hệ Zalo 0978249967 để được hỗ trợ.";
 
 var thaidev09 = {
