@@ -283,7 +283,6 @@ if (ua.includes("Locket")) {
     // 6. WIDGET, THÔNG BÁO & GIAO DIỆN (ĐỦ 22 KHUNG WIDGET)
     // ============================================================
 
-    // DANH SÁCH 22 KHUNG WIDGET CHUẨN
     var KHUNG_WIDGET = {
         1:  "https://i.ibb.co/RTm5P1n9/kitty-1.png",                     // 1. Khung Kitty mặc định
         2:  "https://i.ibb.co/scN4mp0/anhtu4n-widget-a58be521b0cc.png", // 2. Gấu nhỏ
@@ -309,7 +308,6 @@ if (ua.includes("Locket")) {
         22: "https://i.ibb.co/VYbTmt9W/anhtu4n-widget-6e5396596442.png"  // 22. Thủy tinh 2
     };
 
-    // 👉 ĐỔI SỐ BÊN DƯỚI ĐỂ CHỌN KHUNG (1 đến 22)
     var CHON_KHUNG = 4; 
 
     var selected_widget_url = KHUNG_WIDGET[CHON_KHUNG] || KHUNG_WIDGET[1];
@@ -331,8 +329,7 @@ if (ua.includes("Locket")) {
         widget_stale_state_enabled: "false",
         widget_last_sent_indicator: "false",
         widget_sync_token_reload_mode: "clearTokenNever",
-        
-        // Cung cấp cả 2 cấu trúc key tương thích mọi bản Locket
+
         widget_frame_event: JSON.stringify(frame_payload),
         widget_frame_events: JSON.stringify([frame_payload]),
 
