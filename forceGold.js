@@ -14,6 +14,11 @@ if (ua.includes("Locket")) {
     // 1. CẤU HÌNH GOLD, FEATURE GATES & PAYWALL (FORCE GOLD FULL)
     // ============================================================
     Object.assign(obj.entries, {
+        camera_kit_token: "eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNzkzNTM4MDY3LCJzdWIiOiI3NDdjMWJiZC05OWUzLTRhYjQtOGNmYS1hY2I1Y2VhZDViYzh-UFJPRFVDVElPTn40ZDgxNjc1ZC1iODFmLTQ1MDUtYmM5OS02YTVhN2Q3NTMwOTAifQ.cEZHv9r3j3pQgqdT2Qfk6euNksqGldFWSNE4npqMgl4",
+        camera_kit_config: JSON.stringify({
+            token: "eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNzkzNTM4MDY3LCJzdWIiOiI3NDdjMWJiZC05OWUzLTRhYjQtOGNmYS1hY2I1Y2VhZDViYzh-UFJPRFVDVElPTn40ZDgxNjc1ZC1iODFmLTQ1MDUtYmM5OS02YTVhN2Q3NTMwOTAifQ.cEZHv9r3j3pQgqdT2Qfk6euNksqGldFWSNE4npqMgl4",
+            group_ids: ["1c129146-cf22-4319-a876-e72e56c7e1a3"]
+        }),
         gold_enabled: "true",
         is_gold_enabled: "true",
         locket_gold_enabled: "true",
