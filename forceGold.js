@@ -317,16 +317,22 @@ if (ua.includes("Locket")) {
 
     var selected_widget_url = KHUNG_WIDGET[CHON_KHUNG] || KHUNG_WIDGET[1];
     var frame_payload = {
+        id: "frame_event_v" + CHON_KHUNG,
         uid: "frame_event_v" + CHON_KHUNG,          
+        enabled: true,
+        is_active: true,
+        title: "Widget Frame Custom",
         url: selected_widget_url,
         frame_url: selected_widget_url,
+        image_url: selected_widget_url,
         use_local_time_zone: true,
         placement: "below",
         start_at: "2020-01-01T00:00:00Z",
         end_at: "2099-12-31T23:59:59Z"
     };
-
     Object.assign(obj.entries, {
+        widget_frame_event_enabled: "true",
+        custom_widget_frames_enabled: "true",
         widget_frame_event_max_images: "5",
         android_widget_frame_event_enabled: "true",
         widget_badge_enabled: "true",
@@ -334,10 +340,8 @@ if (ua.includes("Locket")) {
         widget_stale_state_enabled: "false",
         widget_last_sent_indicator: "false",
         widget_sync_token_reload_mode: "clearTokenNever",
-
         widget_frame_event: JSON.stringify(frame_payload),
         widget_frame_events: JSON.stringify([frame_payload]),
-
         live_activity_onboarding: "true",
         live_activity_onboarding_variant: "friending",
         register_live_activity_push_to_start_token: "true",
@@ -364,7 +368,6 @@ if (ua.includes("Locket")) {
         custom_profile_pics: "true",
         profile_menu_v2_enabled: "true"
     });
-
     // ============================================================
     // 7. HỆ THỐNG, CACHE & STORAGE CDN
     // ============================================================
