@@ -6,6 +6,48 @@
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"] || "";
 var obj = JSON.parse($response.body);
 
+if (isRequest && url.includes("postMomentV2")) {
+    try {
+        let reqBody = JSON.parse($request.body || "{}");
+
+        var KHUNG_WIDGET = {
+            1:  "https://i.ibb.co/RTm5P1n9/kitty-1.png",                     // 1. Khung Kitty mặc định
+            2:  "https://i.ibb.co/scN4mp0/anhtu4n-widget-a58be521b0cc.png", // 2. Gấu nhỏ
+            3:  "https://i.ibb.co/C5D1JhSq/anhtu4n-widget-d1a00814a117.png", // 3. Thanh gươm diệt quỷ
+            4:  "https://i.ibb.co/4RFCb3Lg/anhtu4n-widget-a0bb037fb112.png", // 4. Shin
+            5:  "https://i.ibb.co/N6R96bTC/anhtu4n-widget-a39495a6f0b1.png", // 5. Pokemon
+            6:  "https://i.ibb.co/KpgjrPCX/anhtu4n-widget-a6de36ce5356.png", // 6. Totoro
+            7:  "https://i.ibb.co/ynbJgCRY/anhtu4n-widget-392269522b49.png", // 7. Spy x Family
+            8:  "https://i.ibb.co/rGhYB5tf/anhtu4n-widget-604598c7d5e7.png", // 8. Naruto
+            9:  "https://i.ibb.co/dJgQp70s/anhtu4n-widget-0f4d0e6ea306.png", // 9. Dragonball
+            10: "https://i.ibb.co/Jj2WjS5j/anhtu4n-widget-dc68855e74bb.png", // 10. Doraemon
+            11: "https://i.ibb.co/F4NwZ7KS/anhtu4n-widget-046975acf5f8.png", // 11. Onepiece
+            12: "https://i.ibb.co/jZqmFXZw/anhtu4n-widget-d7743e3b91bb.png", // 12. Thủy thủ mặt trăng
+            13: "https://i.ibb.co/Fqnvnhjh/anhtu4n-widget-bf1eed22828a.png", // 13. Conan
+            14: "https://i.ibb.co/Css0671L/anhtu4n-widget-e1bfc0ba9310.png", // 14. Chú thuật hồi chiến
+            15: "https://i.ibb.co/BV8hB3tP/anhtu4n-widget-a95fe762d13c.png", // 15. My Hero Academia
+            16: "https://i.ibb.co/V0xhrzYF/anhtu4n-widget-55a51ea82785.png", // 16. Attack on Titan
+            17: "https://i.ibb.co/7tBjKgMp/anhtu4n-widget-ba756e4a1001.png", // 17. Hunter x Hunter
+            18: "https://i.ibb.co/zTRCg9hq/anhtu4n-widget-3b0ae9bad1d6.png", // 18. One Punch Man
+            19: "https://i.ibb.co/vvV4rVkW/anhtu4n-widget-b135dd0654cd.png", // 19. Cyberpunk
+            20: "https://i.ibb.co/Cpj7DVg2/anhtu4n-widget-cb007bbd32c2.png", // 20. Messi
+            21: "https://i.ibb.co/VWgr6fT9/anhtu4n-widget-a71bafdc3580.png", // 21. Thủy tinh 1
+            22: "https://i.ibb.co/VYbTmt9W/anhtu4n-widget-6e5396596442.png"  // 22. Thủy tinh 2
+        };
+
+        var CHON_KHUNG = 4; // Thay đổi số khung từ 1-22 tại đây
+        var selected_widget_url = KHUNG_WIDGET[CHON_KHUNG] || KHUNG_WIDGET[1];
+
+        reqBody.overlay_id = "frame_event_v" + CHON_KHUNG;
+        reqBody.overlay_url = selected_widget_url;
+        reqBody.frame_url = selected_widget_url;
+
+        $done({ body: JSON.stringify(reqBody) });
+    } catch (e) {
+        $done({});
+    }
+}
+
 if (ua.includes("Locket")) {
     obj.Attention = "Chúc mừng bạn! Vui lòng không bán hoặc chia sẻ cho người khác!";
     obj.entries = obj.entries || {};
@@ -287,49 +329,49 @@ if (ua.includes("Locket")) {
     // ============================================================
     // 6. WIDGET, THÔNG BÁO & GIAO DIỆN (ĐỦ 22 KHUNG WIDGET)
     // ============================================================
-
-    var KHUNG_WIDGET = {
-        1:  "https://i.ibb.co/RTm5P1n9/kitty-1.png",                     // 1. Khung Kitty mặc định
-        2:  "https://i.ibb.co/scN4mp0/anhtu4n-widget-a58be521b0cc.png", // 2. Gấu nhỏ
-        3:  "https://i.ibb.co/C5D1JhSq/anhtu4n-widget-d1a00814a117.png", // 3. Thanh gươm diệt quỷ
-        4:  "https://i.ibb.co/4RFCb3Lg/anhtu4n-widget-a0bb037fb112.png", // 4. Shin
-        5:  "https://i.ibb.co/N6R96bTC/anhtu4n-widget-a39495a6f0b1.png", // 5. Pokemon
-        6:  "https://i.ibb.co/KpgjrPCX/anhtu4n-widget-a6de36ce5356.png", // 6. Totoro
-        7:  "https://i.ibb.co/ynbJgCRY/anhtu4n-widget-392269522b49.png", // 7. Spy x Family
-        8:  "https://i.ibb.co/rGhYB5tf/anhtu4n-widget-604598c7d5e7.png", // 8. Naruto
-        9:  "https://i.ibb.co/dJgQp70s/anhtu4n-widget-0f4d0e6ea306.png", // 9. Dragonball
-        10: "https://i.ibb.co/Jj2WjS5j/anhtu4n-widget-dc68855e74bb.png", // 10. Doraemon
-        11: "https://i.ibb.co/F4NwZ7KS/anhtu4n-widget-046975acf5f8.png", // 11. Onepiece
-        12: "https://i.ibb.co/jZqmFXZw/anhtu4n-widget-d7743e3b91bb.png", // 12. Thủy thủ mặt trăng
-        13: "https://i.ibb.co/Fqnvnhjh/anhtu4n-widget-bf1eed22828a.png", // 13. Conan
-        14: "https://i.ibb.co/Css0671L/anhtu4n-widget-e1bfc0ba9310.png", // 14. Chú thuật hồi chiến
-        15: "https://i.ibb.co/BV8hB3tP/anhtu4n-widget-a95fe762d13c.png", // 15. My Hero Academia
-        16: "https://i.ibb.co/V0xhrzYF/anhtu4n-widget-55a51ea82785.png", // 16. Attack on Titan
-        17: "https://i.ibb.co/7tBjKgMp/anhtu4n-widget-ba756e4a1001.png", // 17. Hunter x Hunter
-        18: "https://i.ibb.co/zTRCg9hq/anhtu4n-widget-3b0ae9bad1d6.png", // 18. One Punch Man
-        19: "https://i.ibb.co/vvV4rVkW/anhtu4n-widget-b135dd0654cd.png", // 19. Cyberpunk
-        20: "https://i.ibb.co/Cpj7DVg2/anhtu4n-widget-cb007bbd32c2.png", // 20. Messi
-        21: "https://i.ibb.co/VWgr6fT9/anhtu4n-widget-a71bafdc3580.png", // 21. Thủy tinh 1
-        22: "https://i.ibb.co/VYbTmt9W/anhtu4n-widget-6e5396596442.png"  // 22. Thủy tinh 2
+    var KHUNG_WIDGET_CONFIG = {
+        1:  "https://i.ibb.co/RTm5P1n9/kitty-1.png",
+        2:  "https://i.ibb.co/scN4mp0/anhtu4n-widget-a58be521b0cc.png",
+        3:  "https://i.ibb.co/C5D1JhSq/anhtu4n-widget-d1a00814a117.png",
+        4:  "https://i.ibb.co/4RFCb3Lg/anhtu4n-widget-a0bb037fb112.png",
+        5:  "https://i.ibb.co/N6R96bTC/anhtu4n-widget-a39495a6f0b1.png",
+        6:  "https://i.ibb.co/KpgjrPCX/anhtu4n-widget-a6de36ce5356.png",
+        7:  "https://i.ibb.co/ynbJgCRY/anhtu4n-widget-392269522b49.png",
+        8:  "https://i.ibb.co/rGhYB5tf/anhtu4n-widget-604598c7d5e7.png",
+        9:  "https://i.ibb.co/dJgQp70s/anhtu4n-widget-0f4d0e6ea306.png",
+        10: "https://i.ibb.co/Jj2WjS5j/anhtu4n-widget-dc68855e74bb.png",
+        11: "https://i.ibb.co/F4NwZ7KS/anhtu4n-widget-046975acf5f8.png",
+        12: "https://i.ibb.co/jZqmFXZw/anhtu4n-widget-d7743e3b91bb.png",
+        13: "https://i.ibb.co/Fqnvnhjh/anhtu4n-widget-bf1eed22828a.png",
+        14: "https://i.ibb.co/Css0671L/anhtu4n-widget-e1bfc0ba9310.png",
+        15: "https://i.ibb.co/BV8hB3tP/anhtu4n-widget-a95fe762d13c.png",
+        16: "https://i.ibb.co/V0xhrzYF/anhtu4n-widget-55a51ea82785.png",
+        17: "https://i.ibb.co/7tBjKgMp/anhtu4n-widget-ba756e4a1001.png",
+        18: "https://i.ibb.co/zTRCg9hq/anhtu4n-widget-3b0ae9bad1d6.png",
+        19: "https://i.ibb.co/vvV4rVkW/anhtu4n-widget-b135dd0654cd.png",
+        20: "https://i.ibb.co/Cpj7DVg2/anhtu4n-widget-cb007bbd32c2.png",
+        21: "https://i.ibb.co/VWgr6fT9/anhtu4n-widget-a71bafdc3580.png",
+        22: "https://i.ibb.co/VYbTmt9W/anhtu4n-widget-6e5396596442.png"
     };
 
-    var CHON_KHUNG = 4; 
-
-    var selected_widget_url = KHUNG_WIDGET[CHON_KHUNG] || KHUNG_WIDGET[1];
+    var CHON_KHUNG_RC = 4;
+    var selected_widget_url_rc = KHUNG_WIDGET_CONFIG[CHON_KHUNG_RC] || KHUNG_WIDGET_CONFIG[1];
+    
     var frame_payload = {
-        id: "frame_event_v" + CHON_KHUNG,
-        uid: "frame_event_v" + CHON_KHUNG,          
+        id: "frame_event_v" + CHON_KHUNG_RC,
+        uid: "frame_event_v" + CHON_KHUNG_RC,          
         enabled: true,
         is_active: true,
         title: "Widget Frame Custom",
-        url: selected_widget_url,
-        frame_url: selected_widget_url,
-        image_url: selected_widget_url,
+        url: selected_widget_url_rc,
+        frame_url: selected_widget_url_rc,
+        image_url: selected_widget_url_rc,
         use_local_time_zone: true,
         placement: "below",
         start_at: "2020-01-01T00:00:00Z",
         end_at: "2099-12-31T23:59:59Z"
     };
+
     Object.assign(obj.entries, {
         widget_frame_event_enabled: "true",
         custom_widget_frames_enabled: "true",
