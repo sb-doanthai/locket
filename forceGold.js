@@ -18,7 +18,7 @@ if (isRequest && url.includes("postMomentV2")) {
             1:  "https://i.ibb.co/RTm5P1n9/kitty-1.png",                     // 1. Khung Kitty mặc định
             2:  "https://i.ibb.co/scN4mp0/anhtu4n-widget-a58be521b0cc.png", // 2. Gấu nhỏ
             3:  "https://i.ibb.co/C5D1JhSq/anhtu4n-widget-d1a00814a117.png", // 3. Thanh gươm diệt quỷ
-            4:  "https://i.ibb.co/4RFCb3Lg/anhtu4n-widget-a0bb037fb112.png", // 4. Shin
+            4:  "https://i.postimg.cc/fbY7MGdR/hlw.png",                      // 4. Khung tùy chỉnh HLW
             5:  "https://i.ibb.co/N6R96bTC/anhtu4n-widget-a39495a6f0b1.png", // 5. Pokemon
             6:  "https://i.ibb.co/KpgjrPCX/anhtu4n-widget-a6de36ce5356.png", // 6. Totoro
             7:  "https://i.ibb.co/ynbJgCRY/anhtu4n-widget-392269522b49.png", // 7. Spy x Family
@@ -42,7 +42,7 @@ if (isRequest && url.includes("postMomentV2")) {
         var CHON_KHUNG = 4; // Thay đổi số khung từ 1-22 tại đây
         var selected_widget_url = KHUNG_WIDGET[CHON_KHUNG] || KHUNG_WIDGET[1];
 
-        reqBody.overlay_id = "frame_event_v" + CHON_KHUNG;
+        reqBody.overlay_id = "midautumn_2026";
         reqBody.overlay_url = selected_widget_url;
         reqBody.frame_url = selected_widget_url;
 
@@ -100,6 +100,9 @@ else if (!isRequest && typeof $response !== "undefined" && $response.body) {
                     widget_frame_event: "enabled",
                     widget_frame_events: "enabled",
                     event_frames: "enabled",
+                    holiday_widget_frames: "enabled",
+                    holiday_frames: "enabled",
+                    widget_holiday_frames: "enabled",
                     streak_recovery: "enabled"
                 }),
                 upsell_features: JSON.stringify({
@@ -245,7 +248,7 @@ else if (!isRequest && typeof $response !== "undefined" && $response.body) {
                 upload_main_image_quality: "1.0",
                 upload_main_image_size: "1440",
                 upload_thumbnail_image_quality: "1.0",
-                upload_thumbnail_image_size: "1020",
+                upload_thumbnail_image_size: "1020"
             });
 
             // ----------------------------------------------------
@@ -341,45 +344,17 @@ else if (!isRequest && typeof $response !== "undefined" && $response.body) {
             });
 
             // ----------------------------------------------------
-            // F. WIDGET & GIAO DIỆN KHUNG EVENT (22 KHUNG)
+            // F. WIDGET & GIAO DIỆN KHUNG NGÀY LỄ (CẬP NHẬT CHÍNH XÁC)
             // ----------------------------------------------------
-            var KHUNG_WIDGET_CONFIG = {
-                1:  "https://i.ibb.co/RTm5P1n9/kitty-1.png",
-                2:  "https://i.ibb.co/scN4mp0/anhtu4n-widget-a58be521b0cc.png",
-                3:  "https://i.ibb.co/C5D1JhSq/anhtu4n-widget-d1a00814a117.png",
-                4:  "https://i.ibb.co/4RFCb3Lg/anhtu4n-widget-a0bb037fb112.png",
-                5:  "https://i.ibb.co/N6R96bTC/anhtu4n-widget-a39495a6f0b1.png",
-                6:  "https://i.ibb.co/KpgjrPCX/anhtu4n-widget-a6de36ce5356.png",
-                7:  "https://i.ibb.co/ynbJgCRY/anhtu4n-widget-392269522b49.png",
-                8:  "https://i.ibb.co/rGhYB5tf/anhtu4n-widget-604598c7d5e7.png",
-                9:  "https://i.ibb.co/dJgQp70s/anhtu4n-widget-0f4d0e6ea306.png",
-                10: "https://i.ibb.co/Jj2WjS5j/anhtu4n-widget-dc68855e74bb.png",
-                11: "https://i.ibb.co/F4NwZ7KS/anhtu4n-widget-046975acf5f8.png",
-                12: "https://i.ibb.co/jZqmFXZw/anhtu4n-widget-d7743e3b91bb.png",
-                13: "https://i.ibb.co/Fqnvnhjh/anhtu4n-widget-bf1eed22828a.png",
-                14: "https://i.ibb.co/Css0671L/anhtu4n-widget-e1bfc0ba9310.png",
-                15: "https://i.ibb.co/BV8hB3tP/anhtu4n-widget-a95fe762d13c.png",
-                16: "https://i.ibb.co/V0xhrzYF/anhtu4n-widget-55a51ea82785.png",
-                17: "https://i.ibb.co/7tBjKgMp/anhtu4n-widget-ba756e4a1001.png",
-                18: "https://i.ibb.co/zTRCg9hq/anhtu4n-widget-3b0ae9bad1d6.png",
-                19: "https://i.ibb.co/vvV4rVkW/anhtu4n-widget-b135dd0654cd.png",
-                20: "https://i.ibb.co/Cpj7DVg2/anhtu4n-widget-cb007bbd32c2.png",
-                21: "https://i.ibb.co/VWgr6fT9/anhtu4n-widget-a71bafdc3580.png",
-                22: "https://i.ibb.co/VYbTmt9W/anhtu4n-widget-6e5396596442.png"
-            };
-
-            var CHON_KHUNG_RC = 4;
-            var selected_widget_url_rc = KHUNG_WIDGET_CONFIG[CHON_KHUNG_RC] || KHUNG_WIDGET_CONFIG[1];
-            
             var frame_payload = {
-                id: "frame_event_v" + CHON_KHUNG_RC,
-                uid: "frame_event_v" + CHON_KHUNG_RC,          
+                id: "midautumn_2026",
+                uid: "midautumn_2026",
                 enabled: true,
                 is_active: true,
-                title: "Widget Frame Custom",
-                url: selected_widget_url_rc,
-                frame_url: selected_widget_url_rc,
-                image_url: selected_widget_url_rc,
+                title: "Khung Tiện Ích Ngày Lễ",
+                url: "https://i.postimg.cc/fbY7MGdR/hlw.png",
+                frame_url: "https://i.postimg.cc/fbY7MGdR/hlw.png",
+                image_url: "https://i.postimg.cc/fbY7MGdR/hlw.png",
                 use_local_time_zone: true,
                 placement: "below",
                 start_at: "2020-01-01T00:00:00Z",
@@ -387,13 +362,16 @@ else if (!isRequest && typeof $response !== "undefined" && $response.body) {
             };
 
             Object.assign(obj.entries, {
-                active_widget_frame_event_id: "frame_event_v4",
-                widget_frame_events_enabled: "true",
-                event_frames_enabled: "true",
+                active_widget_frame_event_id: "midautumn_2026",
+                holiday_widget_frames_enabled: "true",
+                holiday_frames_enabled: "true",
+                show_holiday_widget_frames: "true",
                 widget_frame_event_enabled: "true",
+                widget_frame_events_enabled: "true",
                 custom_widget_frames_enabled: "true",
-                widget_frame_event_max_images: "5",
+                event_frames_enabled: "true",
                 android_widget_frame_event_enabled: "true",
+                widget_frame_event_max_images: "5",
                 widget_badge_enabled: "true",
                 widget_badge_v2: "true",
                 widget_stale_state_enabled: "false",
@@ -472,7 +450,7 @@ else if (!isRequest && typeof $response !== "undefined" && $response.body) {
             });
 
             // ----------------------------------------------------
-            // H. OVERLAY & CAPTION TÙY CHỈNH
+            // H. OVERLAY & CAPTION TÙY CHỈNH (GIỮ NGUYÊN HOÀN TOÀN)
             // ----------------------------------------------------
             Object.assign(obj.entries, {
                 overlay_navigator_enabled: "true",
