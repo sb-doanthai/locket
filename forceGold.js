@@ -97,6 +97,9 @@ else if (!isRequest && typeof $response !== "undefined" && $response.body) {
                     remove_ads: "enabled",
                     video: "enabled",
                     custom_widget_frames: "enabled",
+                    widget_frame_event: "enabled",
+                    widget_frame_events: "enabled",
+                    event_frames: "enabled",
                     streak_recovery: "enabled"
                 }),
                 upsell_features: JSON.stringify({
@@ -242,7 +245,7 @@ else if (!isRequest && typeof $response !== "undefined" && $response.body) {
                 upload_main_image_quality: "1.0",
                 upload_main_image_size: "1440",
                 upload_thumbnail_image_quality: "1.0",
-                upload_thumbnail_image_size: "1020"
+                upload_thumbnail_image_size: "1020",
             });
 
             // ----------------------------------------------------
@@ -384,6 +387,9 @@ else if (!isRequest && typeof $response !== "undefined" && $response.body) {
             };
 
             Object.assign(obj.entries, {
+                active_widget_frame_event_id: "frame_event_v4",
+                widget_frame_events_enabled: "true",
+                event_frames_enabled: "true",
                 widget_frame_event_enabled: "true",
                 custom_widget_frames_enabled: "true",
                 widget_frame_event_max_images: "5",
