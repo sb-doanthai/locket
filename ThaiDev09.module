@@ -17,7 +17,7 @@ revenuecat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(r
 deleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/sb-doanthai/locket/main/deleteHeader.js, timeout=60
 
 # Bắt API Remote Config để ép Locket Gold & 60s
-locket_rc = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/sb-doanthai/locket/main/forceGold.js, requires-body=true, max-size=-1, timeout=60
+locket_rc = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/sb-doanthai/locket/main/forceGold2.js, requires-body=true, max-size=-1, timeout=60
 
 # Bắt API Đăng ảnh để chèn Khung Widget & Caption Tùy Chỉnh
 locket_post_frame = type=http-request, pattern=^https?:\/\/.*locket.*\/postMomentV2, script-path=https://raw.githubusercontent.com/sb-doanthai/locket/main/forceGold.js, requires-body=true, max-size=-1, timeout=60
